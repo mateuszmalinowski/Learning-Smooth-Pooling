@@ -1,0 +1,2 @@
+Contains abstract class the Mapper and its specializations.
+Mapper is a transform from the vector space into a scalar.
