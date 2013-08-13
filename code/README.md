@@ -16,116 +16,81 @@ How to execute the code? -- Short Version
 =================================
 We can execute the code with default parameters (they might not be the most 
 optimal).
+
 1. Small scale
-
-a) Set paths (to local data, and to datasets) in Configuration.m
-
-b) Run MainSmallScale.m
+  * Set paths (to local data, and to datasets) in Configuration.m
+  * Run MainSmallScale.m
 
 2. Large scale
-
-a) Set paths (to local data, and to datasets) in Configuration.m
-
-b) Run MainLargeScalePrepareInput.m 
-
-c) Run TriangleCodingPoolingRegion.m on the cluster in parallel;
+  * Set paths (to local data, and to datasets) in Configuration.m
+  * Run MainLargeScalePrepareInput.m 
+  * Run TriangleCodingPoolingRegion.m on the cluster in parallel;
 If cluster cannot be applicable use RunTriangleCodingPoolingSequential.m
-
-d) Run MainLargeScaleClassification.m
+  * Run MainLargeScaleClassification.m
 
 How to execute the code? -- LongVersion
 =================================
 1. Small scale (no batch approximation)
-
-a) Works well for smaller dictionaries as we don't use approximation by splitting into batches.
-
-b) Check if all paths in Configuration.m are set correctly;
+  * Works well for smaller dictionaries as we don't use approximation by splitting into batches.
+  * Check if all paths in Configuration.m are set correctly;
 Be sure that all directories pointed by paths in b) exist
-
-c) Set the working_dataset in Configuration.m. This gives the current dataset
+  * Set the working_dataset in Configuration.m. This gives the current dataset
 that is used for the experiments.
-
-d) Set dictionary_size in Configuration.m. This gives you dimensionality
+  * Set dictionary_size in Configuration.m. This gives you dimensionality
 of the features.
-
-e) Run MainSmallScale.m script.
+  * Run MainSmallScale.m script.
 
 2. Large scale (with batch approximation);
-
-a) Works well for bigger dictionaries as we use approximation by splitting into batches.
-
-b) Check if all paths in Configuration.m are set correctly. All directories must also exist.
-
-c) Set the working_dataset in Configuration.m. This gives the current dataset
+  * Works well for bigger dictionaries as we use approximation by splitting into batches.
+  * Check if all paths in Configuration.m are set correctly. All directories must also exist.
+  * Set the working_dataset in Configuration.m. This gives the current dataset
 that is used for the experiments.
-
-d) Set dictionary_size in Configuration.m. This gives you dimensionality
+  * Set dictionary_size in Configuration.m. This gives you dimensionality
 of the features. Set also parts_size in Configuration.m
-
-e) Set sizeSplitPart in SplitCodes.m to be the size of the batches.
+  * Set sizeSplitPart in SplitCodes.m to be the size of the batches.
 By default it is set to 40.
 Set also numCodes in SplitCodes.m to be the size of the original dictionary.
 By default it is set to 1600.
-
-f) Run MainLargeScalePrepareInput.m script.
-
-g) Set variable original_dictionary_size in Configuration.m;
+  * Run MainLargeScalePrepareInput.m script.
+  * Set variable original_dictionary_size in Configuration.m;
 original_dictionary_size points out to the size of the original dictionary
 - one before splitting.
-
-h) Set dictionary_size for the size of the batches in Configuration.m. 
+  *Set dictionary_size for the size of the batches in Configuration.m. 
 For instance dictionary_size = 40.
-
-i) Run TriangleCodingPoolingRegions.m with different parts (argument currentPart
+  * Run TriangleCodingPoolingRegions.m with different parts (argument currentPart
 in TriangleCodingPoolingRegions.m). You can either use cluster and run
 such script in parallel (embarrasingly parallel computations - preferable),
 or by running the script RunTriangleCodingPoolingSequential.m in sequential
 manner. Latter is not recommended.
-
-j) Make sure that source_dataset in Configuration.m is empty.
-
-k) Run MainLargeScaleClassification.m
+  * Make sure that source_dataset in Configuration.m is empty.
+  * Run MainLargeScaleClassification.m
 
 3. Transfer features between datasets
-
-a) We can transfer pooling regions between two datasets.
-
-b) Check if all paths in Configuration.m are set correctly. All directories must also exist.
-
-c) Run MainSmallScale.m or MainLargeScall.m depending if we want to transfer
+  * We can transfer pooling regions between two datasets.
+  * Check if all paths in Configuration.m are set correctly. All directories must also exist.
+  * Run MainSmallScale.m or MainLargeScall.m depending if we want to transfer
 features in the small or large scale setting. Run the script twice with 
 working_dataset = CIFAR10 and working_dataset = CIFAR100 (Configuration.m).
-
-d) Set source_dataset in Configuration.m to point to the source dataset that
+  * Set source_dataset in Configuration.m to point to the source dataset that
 we transfer from. Set working_dataset in Configuration.m to point to the 
 target dataset. 
-
-e) Set number of centroids (numCentroidsArray) and partsArray in ComputePooledFeaturesBetweenDatasets.m.
+  * Set number of centroids (numCentroidsArray) and partsArray in ComputePooledFeaturesBetweenDatasets.m.
 If partsArray are left empty then no approximation by splitting into batches is used.
 If partsArray are not empty then you must set originalDictSize. Latter indicates
 the size of the original dictionary (where the data split into parts originate from).
-
-f) Set correspondingly originalDictSizeArr and partsSizeArr in 
+  * Set correspondingly originalDictSizeArr and partsSizeArr in 
 TransferTriangleFeaturesSVM.m, or use values from Configuration.m.
-
-g) Run MainTransferBetweenDatasets.m
+  * Run MainTransferBetweenDatasets.m
 
 4. Show the pooling regions
-
-a) We can visualize learned pooling regions
-
-b) Check if all paths in Configuration.m are set correctly. All directories must also exist.
-
-c) Set the pooling layers to visualize in VizPoolingRegions.m
-
-d) Set partsNo in VizPoolingRegions if we want to visualize a batch
+  * We can visualize learned pooling regions
+  * Check if all paths in Configuration.m are set correctly. All directories must also exist.
+  * Set the pooling layers to visualize in VizPoolingRegions.m
+  * Set partsNo in VizPoolingRegions if we want to visualize a batch
 number partsNo (used in approximation). If not then set partsNo = 0. 
-
-e) Set working_dataset and dictionary_size in Configuration.m
-
-f) If partsNo in VizPoolingRegions is non-zero then set original_dictionary_size
-
-g) Run VizPoolingRegions.m script.
+  * Set working_dataset and dictionary_size in Configuration.m
+  * If partsNo in VizPoolingRegions is non-zero then set original_dictionary_size
+  * Run VizPoolingRegions.m script.
 
 Notes:
 =================================
