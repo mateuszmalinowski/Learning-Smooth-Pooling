@@ -11,9 +11,9 @@ modified [5] as the optimization method. For the purpose of the multilayer
 perceptron's interpretation we have adopted code from [6]. The main file to 
 modify is Configuration.m. However, it also contains some default values.
 Questions should be sent to mmalinow@mpi-inf.mpg.de
-=================================
 
 How to execute the code? -- Short Version
+=================================
 We can execute the code with default parameters (they might not be the most 
 optimal).
 1. Small scale
@@ -26,9 +26,9 @@ b) Run MainLargeScalePrepareInput.m
 c) Run TriangleCodingPoolingRegion.m on the cluster in parallel;
 If cluster cannot be applicable use RunTriangleCodingPoolingSequential.m
 d) Run MainLargeScaleClassification.m
-=================================
 
 How to execute the code? -- LongVersion
+=================================
 1. Small scale (no batch approximation)
 a) Works well for smaller dictionaries as we don't use approximation by splitting into batches.
 b) Check if all paths in Configuration.m are set correctly;
@@ -90,9 +90,9 @@ number partsNo (used in approximation). If not then set partsNo = 0.
 e) Set working_dataset and dictionary_size in Configuration.m
 f) If partsNo in VizPoolingRegions is non-zero then set original_dictionary_size
 g) Run VizPoolingRegions.m script.
-=================================
 
 Notes:
+=================================
 1. The source code produces high dimensional features that are stored 
 in hard-drive. Be sure to have enough storage space.
 2. Fill in the Configuration.m file where you define the data sources.
@@ -103,9 +103,9 @@ significant speed-up without much loss in accuracy.
 4. bias is harmful for the results when transfer is done - 
 better be switched off (isBias = false); on the other hand may save time
 when joint training is a goal - can be turned on (isBias = true).
-=================================
 
 Publications:
+=================================
 [1] M. Malinowski, and M. Fritz, 'Learning Smooth Pooling Regions for Visual Recognition', BMVC 2013 
 [2] M. Malinowski, and M. Fritz, 'Learnable Pooling Regions for Image Classification', ICLR 2013: Workshop Track
 [3] A. Coates and A. Y. Ng 'The Importance of Encoding Versus Training with Sparse Coding and Vector Quantization', ICML 2011
