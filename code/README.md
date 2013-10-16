@@ -10,7 +10,7 @@ the source code provided with [3] and [4] for our purpose. We use
 modified [5] as the optimization method. For the purpose of the multilayer
 perceptron's interpretation we have adopted code from [6]. The main file to 
 modify is Configuration.m. However, it also contains some default values.
-CIFAR-10 and CIFAR-100 can be downloaded from [7] (matlab version).
+CIFAR-10 and CIFAR-100 can be downloaded from http://www.cs.toronto.edu/~kriz/cifar.html (consider the matlab version).
 Questions should be sent to mmalinow@mpi-inf.mpg.de
 
 How to execute the code? -- Short Version
@@ -122,4 +122,3 @@ Publications:
 
 [6] http://deeplearning.stanford.edu/wiki/index.php/UFLDL_Tutorial
 
-[7] http://www.cs.toronto.edu/~kriz/cifar.html
