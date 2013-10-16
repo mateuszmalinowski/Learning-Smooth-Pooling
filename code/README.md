@@ -10,6 +10,7 @@ the source code provided with [3] and [4] for our purpose. We use
 modified [5] as the optimization method. For the purpose of the multilayer
 perceptron's interpretation we have adopted code from [6]. The main file to 
 modify is Configuration.m. However, it also contains some default values.
+CIFAR-10 and CIFAR-100 can be downloaded from [7] (matlab version).
 Questions should be sent to mmalinow@mpi-inf.mpg.de
 
 How to execute the code? -- Short Version
@@ -53,8 +54,7 @@ Set also numCodes in SplitCodes.m to be the size of the original dictionary.
 By default it is set to 1600.
   * Run MainLargeScalePrepareInput.m script.
   * Set variable original_dictionary_size in Configuration.m;
-original_dictionary_size points out to the size of the original dictionary
-- one before splitting.
+original_dictionary_size points out to the size of the original dictionary - the one before splitting.
   *Set dictionary_size for the size of the batches in Configuration.m. 
 For instance dictionary_size = 40.
   * Run TriangleCodingPoolingRegions.m with different parts (argument currentPart
@@ -121,3 +121,5 @@ Publications:
 [5] M. Schmidt, http://www.cs.ubc.ca/~schmidtm/Software/minFunc.html
 
 [6] http://deeplearning.stanford.edu/wiki/index.php/UFLDL_Tutorial
+
+[7] http://www.cs.toronto.edu/~kriz/cifar.html
