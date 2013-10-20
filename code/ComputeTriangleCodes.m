@@ -112,6 +112,7 @@ if isExtractRandomPatches
   trainX = train_loader(DATASET_DIR);
   
   % extract random patches
+  % patches(k, :) represent k-th datum
   patches = random_patch_extractor( ...
     trainX, imageSize, numPatches, patchSize, gridSpacing, true);
   
