@@ -29,7 +29,7 @@ optimal).
 If cluster cannot be applicable use RunTriangleCodingPoolingSequential.m
   * Run MainLargeScaleClassification.m
 
-How to execute the code? -- LongVersion
+How to execute the code? -- Long Version
 =================================
 1. Small scale (no batch approximation)
   * Works well for smaller dictionaries as we don't use approximation by splitting into batches.
